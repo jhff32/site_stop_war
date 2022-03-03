@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from stop_war import views
 
+
 urlpatterns = [
     path('genbykjifhf/', admin.site.urls),
     path('', views.home, name='home'),

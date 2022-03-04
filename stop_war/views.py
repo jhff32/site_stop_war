@@ -1,19 +1,19 @@
 from django.shortcuts import render
 from .models import Visit
 
-counter = 0
+#counter = 0
 
 
 def home(request):
-    global counter
+    #global counter
     ip = get_client_ip(request)
     user_agent = request.META['HTTP_USER_AGENT']
     current_visit = Visit(ip=ip, user_agent=user_agent)
     if not Visit.objects.filter(ip=ip).exists():
         current_visit.save()
-        counter = Visit.objects.count()
+        #counter = Visit.objects.count()
 
-    return render(request, 'stop_war/home.html', {'counter': counter})
+    return render(request, 'stop_war/home.html')
 
 
 def get_client_ip(request):
